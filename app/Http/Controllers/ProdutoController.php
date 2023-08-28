@@ -12,10 +12,8 @@ class ProdutoController extends Controller
      */
     public function index()
     {
-       // dd('Produto');
-       $produtos = Produto::get();
-       dd($produtos);
-
+        $produtos = Produto::get();
+        return view (('produto.produto_index'), ['produtos' => $produtos]);
     }
 
     /**
@@ -23,7 +21,7 @@ class ProdutoController extends Controller
      */
     public function create()
     {
-        //
+        return view('produto.produto_create');
     }
 
     /**
@@ -31,7 +29,11 @@ class ProdutoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //$produtos = new Produto();
+        //$produtos->nome = 'sabão em pó';
+       // $produtos->quantidade = 70;
+       // $produtos->preco = 10.5;
+        //$produtos->save();
     }
 
     /**
@@ -39,7 +41,8 @@ class ProdutoController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $produtos = Produto::find($id);
+        dd($produtos);
     }
 
     /**
@@ -47,11 +50,16 @@ class ProdutoController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $produtos = Produto::find($id);
+        $produtos->nome = 'agua sanitaria';
+        $produtos->quantidade = 90;
+        $produtos->preco = 3.5;
+        $produtos->save();
     }
 
     /**
-     * Update the specified resource in storage.*/
+     * Update the specified resource in storage.
+     */
     public function update(Request $request, string $id)
     {
         //
@@ -62,6 +70,7 @@ class ProdutoController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $produtos = Produto::find($id);
+        $produtos->delete();
     }
 }

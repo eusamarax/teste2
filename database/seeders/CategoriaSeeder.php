@@ -6,6 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
+
 class CategoriaSeeder extends Seeder
 {
     /**
@@ -14,9 +15,11 @@ class CategoriaSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('Categorias')->insert([
-            'nome' => 'Material de Limpeza',
-           
+        DB::table('cetegorias')->insert([
+            'nome' => 'Produto de Limpeza',
+        ]);
+        DB::table('categorias')->insert([
+            'nome' => 'Outros',
         ]);
     }
 }
